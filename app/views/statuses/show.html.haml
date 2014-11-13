@@ -1,0 +1,15 @@
+%p
+  = @status.status
+
+%p
+  = @status.name
+
+%p
+  = @status.likes
+
+%p
+  = link_to "Edit Status", edit_status_path(@status)
+
+%p
+  = link_to "Delete Status", status_path, method: :delete,
+    :data => {:confirm => "Are you sure?"}
