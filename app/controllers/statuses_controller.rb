@@ -11,7 +11,7 @@ class StatusesController < ApplicationController
   def create
     @status = Status.new(status_params)
     if @status.save
-      redirect_to status_path(@status)
+      redirect_to status_path(@status), notice: "Status created successfully"
     else
       render :new
     end
@@ -24,7 +24,7 @@ class StatusesController < ApplicationController
   def update
     set_status
     if @status.update(status_params)
-      redirect_to status_path(@status)
+      redirect_to status_path(@status), notice: "Status updated successfully"
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class StatusesController < ApplicationController
   def destroy
     set_status
     @status.destroy
-    redirect_to statuses_path
+    redirect_to statuses_path, notice: "Status deleted successfully"
   end
 
   private
